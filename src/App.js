@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NasaApi } from './components/Nasa-api';
 import NasaPhoto from './components/Nasa-Photo';
+import { NasaExplanationInfo } from './components/Nasa-Info';
 import './App.css';
 
 // data.explanation => info
@@ -15,12 +16,10 @@ function App() {
   }, []);
   const [photoOfTheDay, setPhotoOfTheDay] = useState();
   console.log(photoOfTheDay);
+
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
+      <NasaExplanationInfo photoOfTheDay={photoOfTheDay} />
       <NasaPhoto photoOfTheDay={photoOfTheDay} />
     </div>
   );
