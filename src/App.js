@@ -5,12 +5,6 @@ import NasaTitle from './components/Nasa-Title';
 import { NasaExplanationInfo } from './components/Nasa-Info';
 import './App.css';
 
-// data.explanation => info
-// data.data => 2019-08-27
-// data.hdurl => hi def image
-// data.title => image title (uses for alt on image)
-// data.url => url regular def image (probably will use this one)...
-
 function App() {
   useEffect(() => {
     NasaApi(setPhotoOfTheDay);
