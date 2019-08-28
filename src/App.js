@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NasaApi } from './components/Nasa-api';
 import NasaPhoto from './components/Nasa-Photo';
+import NasaTitle from './components/Nasa-Title';
 import { NasaExplanationInfo } from './components/Nasa-Info';
 import './App.css';
 
@@ -15,12 +16,12 @@ function App() {
     NasaApi(setPhotoOfTheDay);
   }, []);
   const [photoOfTheDay, setPhotoOfTheDay] = useState();
-  console.log(photoOfTheDay);
 
   return (
     <div className="App">
-      <NasaExplanationInfo photoOfTheDay={photoOfTheDay} />
+      <NasaTitle photoOfTheDay={photoOfTheDay} />
       <NasaPhoto photoOfTheDay={photoOfTheDay} />
+      <NasaExplanationInfo photoOfTheDay={photoOfTheDay} />
     </div>
   );
 }
