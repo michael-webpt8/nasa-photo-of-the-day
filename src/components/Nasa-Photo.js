@@ -1,16 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 
 function NasaPhoto(props) {
-  if (!props.photoOfTheDay) return <h3>Loading...</h3>;
-
   const { photoOfTheDay } = props;
   const photo = photoOfTheDay.url;
   const altText = photoOfTheDay.title;
 
   return (
     <>
-      <img src={photo} alt={altText} />
+      <ImgWrapper src={photo} alt={altText} />
     </>
   );
 }
 export default NasaPhoto;
+
+const ImgWrapper = styled.img`
+  width: 100%;
+  border-radius: 10px;
+`;
