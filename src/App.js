@@ -1,23 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { NasaApi } from './components/Nasa-api';
-import NasaPhoto from './components/Nasa-Photo';
-import NasaTitle from './components/Nasa-Title';
-import { NasaExplanationInfo } from './components/Nasa-Info';
+import NasaComponent from './components/NasaComponent';
+import { Spinner } from 'reactstrap';
+import styled from 'styled-components';
+
 import './App.css';
 
 function App() {
   useEffect(() => {
-    NasaApi(setPhotoOfTheDay);
+    //NasaApi(setPhotoOfTheDay);
   }, []);
   const [photoOfTheDay, setPhotoOfTheDay] = useState();
+  console.log(photoOfTheDay);
+  if (!photoOfTheDay)
+    return (
+      <SpinWrapper>
+        <SpinLoader color="primary" />
+        <h2>Loading...</h2>
+      </SpinWrapper>
+    );
 
-  return (
-    <div className="App">
-      <NasaTitle photoOfTheDay={photoOfTheDay} />
-      <NasaPhoto photoOfTheDay={photoOfTheDay} />
-      <NasaExplanationInfo photoOfTheDay={photoOfTheDay} />
-    </div>
-  );
+  return <NasaComponent photoOfTheDay={photoOfTheDay} />;
 }
 
 export default App;
+
+const SpinWrapper = styled.div`
+  width: 100%;
+  text-align: center;
+`;
+
+const SpinLoader = styled(Spinner)`
+  text-align: center;
+  margin-top: 25px;
+  height: 5rem;
+  width: 5rem;
+`;
