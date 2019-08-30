@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    //NasaApi(setPhotoOfTheDay);
+    NasaApi(setPhotoOfTheDay);
   }, []);
   const [photoOfTheDay, setPhotoOfTheDay] = useState();
   console.log(photoOfTheDay);
